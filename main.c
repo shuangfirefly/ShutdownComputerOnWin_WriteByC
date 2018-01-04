@@ -1,10 +1,10 @@
 
-/**< ×÷Õß:            LS */
+/**< ä½œè€…:            LiShuang */
 
-/**< ĞŞ¸ÄÈÕÆÚ:        2017/5/3 */
-/***< ĞŞ¸ÄÔ­Òò: ½â¾öwin8¼°ÒÔÏÂ°æ±¾ÖĞ, ¿ØÖÆÌ¨ÔËĞĞ´Ë³ÌĞò, ¹Ø»úÊ±¼ä»á²»¶ÏÏñÏòÏÂÒÆ¶¯µÄÎÊÌâ*/
+/**< ä¿®æ”¹æ—¥æœŸ:        2017/5/3 */
+/***< ä¿®æ”¹åŸå› : è§£å†³win8åŠä»¥ä¸‹ç‰ˆæœ¬ä¸­, æ§åˆ¶å°è¿è¡Œæ­¤ç¨‹åº, å…³æœºæ—¶é—´ä¼šä¸æ–­åƒå‘ä¸‹ç§»åŠ¨çš„é—®é¢˜*/
 
-/**< ¼òÒªËµÃ÷:        ²»¿ÉÒÔÓÃÓÚ¾«È·µÄ¶¨Ê±¹Ø»ú*/
+/**< ç®€è¦è¯´æ˜:        ä¸å¯ä»¥ç”¨äºç²¾ç¡®çš„å®šæ—¶å…³æœº*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +12,7 @@
 #include <windows.h>
 #include <winver.h>
 
-#define check_leap_year(year) (((!((year)%4)&&(((year)%100)||(!((year)%400)))))?1:2)  /**< ÈòÄê·µ»Ø1, Æ½Äê·µ»Ø2 */
+#define check_leap_year(year) (((!((year)%4)&&(((year)%100)||(!((year)%400)))))?1:2)  /**< é—°å¹´è¿”å›1, å¹³å¹´è¿”å›2 */
 
 void backspace(int len);
 int check(struct tm *target);
@@ -21,10 +21,10 @@ void ring(int count);
 time_t sys_time = 0x00, input_time = 0x00;
 const int iTmFah=1000; /// iTmFah= int Time Flash (ms)
 const int iPotMit=2000; ///iPotMit= int Prompt Maintain (ms)
-const double time_forbidden = 0, time_warning = 120; /**< µÚÒ»¸ö: ÓÃÓÚ½ûÖ¹Éè¶¨Ğ¡ÓÚ0·ÖÖÓÄÚµÄÊ±¼ä */
+const double time_forbidden = 0, time_warning = 120; /**< ç¬¬ä¸€ä¸ª: ç”¨äºç¦æ­¢è®¾å®šå°äº0åˆ†é’Ÿå†…çš„æ—¶é—´ */
 const double ans = 30, zero = 1e-20;
 
-void CmdPromption(int Num); ///ÉèÖÃÏµÍ³ÌáÊ¾, NumÎªÃüÁîÂë
+void CmdPromption(int Num); ///è®¾ç½®ç³»ç»Ÿæç¤º, Numä¸ºå‘½ä»¤ç 
 
 int main(void)
 {
@@ -40,7 +40,7 @@ int main(void)
         if(0==scanf("%d", &tmp))
         {
             fflush(stdin);
-            printf("´íÎó");
+            printf("é”™è¯¯");
             Sleep(2000);
             exit(1);
         }
@@ -64,25 +64,25 @@ int main(void)
         printf("\n");
         fflush(stdin); ///while(('\n'!=(tmp=getchar()))&&(tmp!=EOF));
         backspace(len);
-        len = printf("        ÊäÈëÍê³É");
+        len = printf("        è¾“å…¥å®Œæˆ");
         Sleep(iPotMit);
         backspace(len);
-        len = printf("%8cÄú¿ÉÒÔÍ¨¹ıÖ±½Ó¹Ø±Õ±¾´°¿ÚÀ´È¡Ïû¶¨Ê±¹Ø»ú", ' ');
+        len = printf("%8cæ‚¨å¯ä»¥é€šè¿‡ç›´æ¥å…³é—­æœ¬çª—å£æ¥å–æ¶ˆå®šæ—¶å…³æœº", ' ');
         Sleep(4000);
         CmdPromption(0);
         timeinfo = localtime(&input_time);
-        printf("%8c>>¹Ø»úÊ±¼ä<<  %02dÔÂ%02dÈÕ  %02dÊ±%02d·Ö\n\n", ' ', (timeinfo->tm_mon + 1),
+        printf("%8c>>å…³æœºæ—¶é—´<<  %02dæœˆ%02dæ—¥  %02dæ—¶%02dåˆ†\n\n", ' ', (timeinfo->tm_mon + 1),
                timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min);
-        /**< time.h ÖĞ¹æ¶¨: ÔÂ·İµÄÈ¡Öµ·¶Î§ÊÇ [0, 11] */
+        /**< time.h ä¸­è§„å®š: æœˆä»½çš„å–å€¼èŒƒå›´æ˜¯ [0, 11] */
 
         while(1)
         {
             time(&sys_time);
             timeinfo = localtime(&sys_time);
-            len = printf("%8cµ±Ç°Ê±¼ä  %02dÔÂ%02dÈÕ  %02dÊ±%02d·Ö%02dÃë", ' ', (timeinfo->tm_mon + 1),
+            len = printf("%8cå½“å‰æ—¶é—´  %02dæœˆ%02dæ—¥  %02dæ—¶%02dåˆ†%02dç§’", ' ', (timeinfo->tm_mon + 1),
                          timeinfo->tm_mday, timeinfo->tm_hour,
                          timeinfo->tm_min, timeinfo->tm_sec);
-            len += printf("%16c³ÌĞòÕıÔÚÔËĞĞÖĞ", ' ');
+            len += printf("%16cç¨‹åºæ­£åœ¨è¿è¡Œä¸­", ' ');
             Sleep(iTmFah);
             backspace(len);
 
@@ -98,16 +98,16 @@ int main(void)
     }
     else
     {
-        printf("\t´íÎó");
+        printf("\té”™è¯¯");
         Sleep(iPotMit);
         exit(1);
     }
     free(timeinfo);
     timeinfo = NULL;
 
-    printf("\tÊ±¼äµ½");
+    printf("\tæ—¶é—´åˆ°");
 
-    if(1==system("shutdown -s -hybrid -t 0 /f"))    /**< ÔİÊ±Ê¹ÓÃÕâÖÖ·½Ê½½â¾ö¿ìËÙ¹Ø»úÎÊÌâ */
+    if(1==system("shutdown -s -hybrid -t 0 /f"))    /**< æš‚æ—¶ä½¿ç”¨è¿™ç§æ–¹å¼è§£å†³å¿«é€Ÿå…³æœºé—®é¢˜ */
         system("shutdown -s -t 0 /f");
 
     return 0;
@@ -155,18 +155,18 @@ int check(struct tm *target)
     if(target->tm_min<0||target->tm_min>59)
         return (0);
 
-    /**< ÊäÈëÊı¾İµÄºÏ·¨ĞÔ¼ì²é ½áÊø */
+    /**< è¾“å…¥æ•°æ®çš„åˆæ³•æ€§æ£€æŸ¥ ç»“æŸ */
 
-    /**< ÊäÈëÊı¾İµÄºÏÀíĞÔ¼ì²é ¿ªÊ¼ */
+    /**< è¾“å…¥æ•°æ®çš„åˆç†æ€§æ£€æŸ¥ å¼€å§‹ */
 
-    input_time = mktime(target);    /**<  Èç¹û½«´íÎóµÄÔÂ·İµÄ½á¹¹ÌåÊ¹ÓÃmktimeº¯Êı½øĞĞ×ª»», »á
-                                        ×ª»»³ö´íÎóµÄÊı¾İ*/
+    input_time = mktime(target);    /**<  å¦‚æœå°†é”™è¯¯çš„æœˆä»½çš„ç»“æ„ä½“ä½¿ç”¨mktimeå‡½æ•°è¿›è¡Œè½¬æ¢, ä¼š
+                                        è½¬æ¢å‡ºé”™è¯¯çš„æ•°æ®*/
 
     if (time_forbidden>difftime(input_time, sys_time))
         return (0);
 
-    /**< ÊäÈëÊı¾İµÄºÏÀíĞÔ¼ì²é ½áÊø */
-    /**< ¹æ¶¨²»ÄÜ½øĞĞ X ·ÖÖÓÒÔÄÚµÄ¶¨Ê±ÉèÖÃ */
+    /**< è¾“å…¥æ•°æ®çš„åˆç†æ€§æ£€æŸ¥ ç»“æŸ */
+    /**< è§„å®šä¸èƒ½è¿›è¡Œ X åˆ†é’Ÿä»¥å†…çš„å®šæ—¶è®¾ç½® */
 
     return (1);
 }
@@ -178,7 +178,7 @@ void ring(int count)
     for(; count; count--)
     {
         len = printf("%c", 0x07);
-        len += printf("%20c¼´½«¹Ø»ú...", ' ');
+        len += printf("%20cå³å°†å…³æœº...", ' ');
         Sleep(2000);
         backspace(len);
     }
@@ -188,13 +188,13 @@ void ring(int count)
 
 void CmdPromption(int Num)
 {
-    ///Num=0, ½öÖ´ĞĞ¹Ì¶¨Êä³ö
+    ///Num=0, ä»…æ‰§è¡Œå›ºå®šè¾“å‡º
     system("CLS");
-    system("mode con: COLS=100 LINES=30"); ///ÉèÖÃcmdµÄ´°¿Ú´óĞ¡
-    system("title ×÷Õß Âş²½µ½ÓîÖæ¾¡Í·");
-    system("color 3E");    /**< Éè¶¨±³¾°, Ç°¾°ÑÕÉ« */
+    system("mode con: COLS=100 LINES=30"); ///è®¾ç½®cmdçš„çª—å£å¤§å°
+    system("title ä½œè€… æ¼«æ­¥åˆ°å®‡å®™å°½å¤´");
+    system("color 3E");    /**< è®¾å®šèƒŒæ™¯, å‰æ™¯é¢œè‰² */
 
-    printf("\n%30c×Ô¶¯¹Ø»ú³ÌĞò\n%32c°æ±¾ 0.3\n\n", ' ', ' ');
+    printf("\n%30cè‡ªåŠ¨å…³æœºç¨‹åº\n%32cç‰ˆæœ¬ 0.3\n\n", ' ', ' ');
     if(1==Num)
-        printf("%20cÇëÊäÈë¹Ø»úÊ±¼ä%2c", ' ', '>');
+        printf("%20cè¯·è¾“å…¥å…³æœºæ—¶é—´%2c", ' ', '>');
 }
