@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1481727486 source:f:\myself\my_own_software\自动关机小程序\shutdown_software\shutdown_third_one\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
+	<winver.h>
+
+1481726993 source:f:\myself\my_own_software\自动关机小程序\shutdown_software\shutdown_third_one\icon.rc
+
+1481726993 source:f:\myself\my_own_software\自动关机小程序\自动关机程序_c实现\shutdown_v0.2\icon.rc
+
+1487945537 source:f:\myself\my_own_software\自动关机小程序\自动关机程序_c实现\shutdown_v0.2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
+	<winver.h>
+
+1481726993 source:g:\myself\my_own_software\自动关机小程序\自动关机程序_c实现\shutdown_v0.2\icon.rc
+
+1493772526 source:g:\myself\my_own_software\自动关机小程序\自动关机程序_c实现\shutdown_v0.2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
+	<winver.h>
+
